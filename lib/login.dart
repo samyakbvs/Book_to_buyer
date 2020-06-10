@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 //import 'package:flash_chat/components/components.dart';
-//import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -9,7 +9,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-//  final _auth = FirebaseAuth.instance;
+  final _auth = FirebaseAuth.instance;
   String password;
   String email;
   bool showSpinner = false;
@@ -39,6 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 48.0,
               ),
               TextField(
+                  keyboardType: TextInputType.emailAddress,
                   textAlign: TextAlign.center,
                   onChanged: (value) {
                     email = value;
@@ -61,7 +62,23 @@ class _LoginScreenState extends State<LoginScreen> {
               RoundedButton(
                 color: Colors.lightBlueAccent,
                 text: 'Login',
-                onPressed: () async {},
+                onPressed: () async {
+                  setState(() {
+                    showSpinner = true;
+                  });
+                  try {
+                    final user = await _auth.signInWithEmailAndPassword(
+                        email: email, password: password);
+                    if (user != null) {
+                      Navigator.pushNamed(context, 'temp_screen');
+                    }
+                    setState(() {
+                      showSpinner = false;
+                    });
+                  } catch (e) {
+                    print(e);
+                  }
+                },
               ),
             ],
           ),
