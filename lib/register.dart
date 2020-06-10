@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 //import 'package:flash_chat/components/components.dart';
 //import 'package:flash_chat/constants.dart';
+import 'package:booktobuyer/reusable_items.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 
@@ -88,48 +89,3 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     );
   }
 }
-
-class RoundedButton extends StatelessWidget {
-  final Color color;
-  final String text;
-  final Function onPressed;
-
-  RoundedButton({this.color, this.text, this.onPressed});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 16.0),
-      child: Material(
-        color: color,
-        borderRadius: BorderRadius.circular(30.0),
-        elevation: 5.0,
-        child: MaterialButton(
-          onPressed: onPressed,
-          minWidth: 200.0,
-          height: 42.0,
-          child: Text(
-            text,
-            style: TextStyle(color: Colors.white),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-const kInputStyle = InputDecoration(
-  hintText: '',
-  contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-  border: OutlineInputBorder(
-    borderRadius: BorderRadius.all(Radius.circular(32.0)),
-  ),
-  enabledBorder: OutlineInputBorder(
-    borderSide: BorderSide(color: Colors.lightBlueAccent, width: 1.0),
-    borderRadius: BorderRadius.all(Radius.circular(32.0)),
-  ),
-  focusedBorder: OutlineInputBorder(
-    borderSide: BorderSide(color: Colors.lightBlueAccent, width: 2.0),
-    borderRadius: BorderRadius.all(Radius.circular(32.0)),
-  ),
-);
