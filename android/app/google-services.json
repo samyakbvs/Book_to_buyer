@@ -30,6 +30,13 @@
             {
               "client_id": "1070297874057-8r2qcn54fjfs9c04c04mdi1fvldvjd4t.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "1070297874057-qlgh4vltullhpm484ntnm9nuefrrtof3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.samyakbvs.booktobuyer"
+              }
             }
           ]
         }
